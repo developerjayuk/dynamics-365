@@ -27,6 +27,8 @@ bld/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+packages/
+filecontentindex/
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
@@ -43,6 +45,8 @@ ScaffoldingReadMe.txt
 ~$*
 *~
 CodeCoverage/
+*.snk
+*.pfx
 
 # MSBuild Binary and Structured Log
 *.binlog
