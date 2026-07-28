@@ -95,7 +95,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasicContactExample.cs" />
+    <Compile Include="OnCreateContactUpdateDescriptionExample.cs" />
+    <Compile Include="OnCreateContactCreateTaskExample.cs" />
     <Compile Include="PlugInTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

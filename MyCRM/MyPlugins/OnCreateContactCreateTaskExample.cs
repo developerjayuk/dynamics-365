@@ -4,7 +4,7 @@ using System.ServiceModel;
 
 namespace MyPlugins
 {
-    public class BasicContactExample : IPlugin
+    public class OnCreateContactCreateTaskExample : IPlugin
     {
         public void Execute(IServiceProvider serviceProvider)
         {
@@ -31,19 +31,28 @@ namespace MyPlugins
                 context.InputParameters["Target"] is Entity)
             {
                 // Obtain the target entity from the input parameters.  
-                Entity entity = (Entity)context.InputParameters["Target"];
+                Entity contact = (Entity)context.InputParameters["Target"];
 
                 try
                 {
-                    // Plug-in business logic goes here.
-                     
-                    // read form data
-                    string firstName = entity.Attributes["firstname"].ToString() ?? "";
-                    string lastName = entity.Attributes["lastname"].ToString() ?? "";
+                    // Plug-in business logic goes here.  
+                    Entity taskRecord = new Entity("task");
 
-                    // assign data to attributes
-                    entity.Attributes.Add("description", $"Update from BasicContactExample plugin for {firstName} {lastName}");
+                    // string
+                    taskRecord.Attributes.Add("subject", "Follow up");
+                    taskRecord.Attributes.Add("description", "This contact needs to be followed up and status set");
+                    
+                    // date
+                    taskRecord.Attributes.Add("scheduledend", DateTime.Now.AddDays(7));
 
+                    // parent object or lookup - contact ID is this case
+                    taskRecord.Attributes.Add("regardingobjectid", contact.ToEntityReference());
+                    
+                    // options
+                    taskRecord.Attributes.Add("actualdurationminutes", "");
+                    taskRecord.Attributes.Add("prioritycode", new OptionSetValue(1)); // normal
+
+                    Guid taskGuid = service.Create(taskRecord);
                 }
 
                 catch (FaultException<OrganizationServiceFault> ex)

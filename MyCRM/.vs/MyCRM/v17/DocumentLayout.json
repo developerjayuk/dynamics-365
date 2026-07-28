@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\WebDev\\dynamics-365\\MyCRM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|MyPlugins||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{955A7691-55DE-4436-8462-F5CAADFD70BA}|MyPlugins\\MyPlugins.csproj|c:\\webdev\\dynamics-365\\mycrm\\myplugins\\oncreatecontactcreatetaskexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{955A7691-55DE-4436-8462-F5CAADFD70BA}|MyPlugins\\MyPlugins.csproj|solutionrelative:myplugins\\oncreatecontactcreatetaskexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{955A7691-55DE-4436-8462-F5CAADFD70BA}|MyPlugins\\MyPlugins.csproj|C:\\WebDev\\dynamics-365\\MyCRM\\myplugins\\basiccontactexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{955A7691-55DE-4436-8462-F5CAADFD70BA}|MyPlugins\\MyPlugins.csproj|solutionrelative:myplugins\\basiccontactexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{955A7691-55DE-4436-8462-F5CAADFD70BA}|MyPlugins\\MyPlugins.csproj|c:\\webdev\\dynamics-365\\mycrm\\myplugins\\oncreatecontactupdatedescriptionexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{955A7691-55DE-4436-8462-F5CAADFD70BA}|MyPlugins\\MyPlugins.csproj|solutionrelative:myplugins\\oncreatecontactupdatedescriptionexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|MyPlugins||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{955A7691-55DE-4436-8462-F5CAADFD70BA}|MyPlugins\\MyPlugins.csproj|C:\\WebDev\\dynamics-365\\MyCRM\\myplugins\\plugintemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -24,15 +28,28 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OnCreateContactCreateTaskExample.cs",
+              "DocumentMoniker": "C:\\WebDev\\dynamics-365\\MyCRM\\MyPlugins\\OnCreateContactCreateTaskExample.cs",
+              "RelativeDocumentMoniker": "MyPlugins\\OnCreateContactCreateTaskExample.cs",
+              "ToolTip": "C:\\WebDev\\dynamics-365\\MyCRM\\MyPlugins\\OnCreateContactCreateTaskExample.cs",
+              "RelativeToolTip": "MyPlugins\\OnCreateContactCreateTaskExample.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T13:59:19.901Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MyPlugins",
               "DocumentMoniker": "C:\\WebDev\\dynamics-365\\MyCRM\\MyPlugins\\MyPlugins.csproj",
               "RelativeDocumentMoniker": "MyPlugins\\MyPlugins.csproj",
@@ -45,18 +62,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BasicContactExample.cs",
-              "DocumentMoniker": "C:\\WebDev\\dynamics-365\\MyCRM\\MyPlugins\\BasicContactExample.cs",
-              "RelativeDocumentMoniker": "MyPlugins\\BasicContactExample.cs",
-              "ToolTip": "C:\\WebDev\\dynamics-365\\MyCRM\\MyPlugins\\BasicContactExample.cs",
-              "RelativeToolTip": "MyPlugins\\BasicContactExample.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAkwCgAAAAAAAAAAAAAAA==",
+              "Title": "OnCreateContactUpdateDescriptionExample.cs",
+              "DocumentMoniker": "C:\\WebDev\\dynamics-365\\MyCRM\\MyPlugins\\OnCreateContactUpdateDescriptionExample.cs",
+              "RelativeDocumentMoniker": "MyPlugins\\OnCreateContactUpdateDescriptionExample.cs",
+              "ToolTip": "C:\\WebDev\\dynamics-365\\MyCRM\\MyPlugins\\OnCreateContactUpdateDescriptionExample.cs",
+              "RelativeToolTip": "MyPlugins\\OnCreateContactUpdateDescriptionExample.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwC4AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-28T08:19:35.695Z"
+              "WhenOpened": "2026-07-28T08:19:35.695Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PlugInTemplate.cs",
               "DocumentMoniker": "C:\\WebDev\\dynamics-365\\MyCRM\\MyPlugins\\PlugInTemplate.cs",
               "RelativeDocumentMoniker": "MyPlugins\\PlugInTemplate.cs",
