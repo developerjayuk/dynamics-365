@@ -53,6 +53,9 @@ namespace MyPlugins
                     taskRecord.Attributes.Add("prioritycode", new OptionSetValue(1)); // normal
 
                     Guid taskGuid = service.Create(taskRecord);
+
+                    // testing of shared variables from another plugin
+                    string sharedValue = context.SharedVariables["KeyAbc"].ToString();
                 }
 
                 catch (FaultException<OrganizationServiceFault> ex)

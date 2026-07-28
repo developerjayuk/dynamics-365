@@ -61,6 +61,9 @@ namespace MyPlugins
 
                     }
 
+                    // testing of shared variables
+                    context.SharedVariables.Add("KeyAbc", "Here is the shared info");
+
                 }
 
                 catch (FaultException<OrganizationServiceFault> ex)
