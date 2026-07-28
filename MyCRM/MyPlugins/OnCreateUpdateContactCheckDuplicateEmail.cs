@@ -1,10 +1,11 @@
 ﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.ServiceModel;
 
 namespace MyPlugins
 {
-    public class OnCreateContactCreateTaskExample : IPlugin
+    public class OnCreateUpdateContactCheckDuplicateEmail : IPlugin
     {
         public void Execute(IServiceProvider serviceProvider)
         {
@@ -35,24 +36,31 @@ namespace MyPlugins
 
                 try
                 {
-                    // Plug-in business logic goes here.  
-                    Entity taskRecord = new Entity("task");
+                    // Plug-in business logic goes here.
+                     
+                    // get contact email
+                    string email = contact.Attributes.Contains("emailaddress1") ? contact.Attributes["emailaddress1"].ToString() : "";
 
-                    // string
-                    taskRecord.Attributes.Add("subject", "Follow up");
-                    taskRecord.Attributes.Add("description", "This contact needs to be followed up and status set");
-                    
-                    // date
-                    taskRecord.Attributes.Add("scheduledend", DateTime.Now.AddDays(7));
+                    // check duplicate
+                    if (!string.IsNullOrEmpty(email))
+                    {
+                        // select emailaddress1 from contact where emailaddress1 = 'email'
+                        QueryExpression q = new QueryExpression("contact")
+                        {
+                            ColumnSet = new ColumnSet(new string[] { "emailaddress1" }),
+                        };
+                        q.Criteria.AddCondition("emailaddress1", ConditionOperator.Equal, email);
 
-                    // parent object or lookup - contact ID is this case
-                    taskRecord.Attributes.Add("regardingobjectid", contact.ToEntityReference());
-                    
-                    // options
-                    taskRecord.Attributes.Add("actualdurationminutes", 90);
-                    taskRecord.Attributes.Add("prioritycode", new OptionSetValue(1)); // normal
+                        EntityCollection collection = service.RetrieveMultiple(q);
 
-                    Guid taskGuid = service.Create(taskRecord);
+                        // if duplicate show error message
+                        if (collection.Entities.Count > 0)
+                        {
+                            throw new InvalidPluginExecutionException("Duplicate email detected!");
+                        }
+
+                    }
+
                 }
 
                 catch (FaultException<OrganizationServiceFault> ex)

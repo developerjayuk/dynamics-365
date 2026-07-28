@@ -4,7 +4,7 @@ using System.ServiceModel;
 
 namespace MyPlugins
 {
-    public class OnCreateContactCreateTaskExample : IPlugin
+    public class PreEntityImageExample : IPlugin
     {
         public void Execute(IServiceProvider serviceProvider)
         {
@@ -36,23 +36,15 @@ namespace MyPlugins
                 try
                 {
                     // Plug-in business logic goes here.  
-                    Entity taskRecord = new Entity("task");
 
-                    // string
-                    taskRecord.Attributes.Add("subject", "Follow up");
-                    taskRecord.Attributes.Add("description", "This contact needs to be followed up and status set");
-                    
-                    // date
-                    taskRecord.Attributes.Add("scheduledend", DateTime.Now.AddDays(7));
+                    string newCity = contact.Attributes.Contains("address1_city") ? contact.Attributes["address1_city"].ToString() : "";
 
-                    // parent object or lookup - contact ID is this case
-                    taskRecord.Attributes.Add("regardingobjectid", contact.ToEntityReference());
-                    
-                    // options
-                    taskRecord.Attributes.Add("actualdurationminutes", 90);
-                    taskRecord.Attributes.Add("prioritycode", new OptionSetValue(1)); // normal
+                    // one way to get pre entity image
+                    Entity preImage = context.PreEntityImages["PreImage"];
+                    string previousCity = preImage.Attributes.Contains("address1_city") ? preImage.Attributes["address1_city"].ToString() : "";
 
-                    Guid taskGuid = service.Create(taskRecord);
+                    // show error back to the user
+                    throw new InvalidPluginExecutionException($"City change from {previousCity} to {newCity}");
                 }
 
                 catch (FaultException<OrganizationServiceFault> ex)

@@ -1,10 +1,11 @@
 ﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.ServiceModel;
 
 namespace MyPlugins
 {
-    public class OnCreateContactCreateTaskExample : IPlugin
+    public class OnCreateContactFailureDebugExample : IPlugin
     {
         public void Execute(IServiceProvider serviceProvider)
         {
@@ -35,24 +36,11 @@ namespace MyPlugins
 
                 try
                 {
-                    // Plug-in business logic goes here.  
-                    Entity taskRecord = new Entity("task");
+                    // Plug-in business logic goes here.
 
-                    // string
-                    taskRecord.Attributes.Add("subject", "Follow up");
-                    taskRecord.Attributes.Add("description", "This contact needs to be followed up and status set");
-                    
-                    // date
-                    taskRecord.Attributes.Add("scheduledend", DateTime.Now.AddDays(7));
+                    // this will fail and can be used as a demo for how to debug
+                    string field = contact.Attributes["fieldDoesNotExist"].ToString();
 
-                    // parent object or lookup - contact ID is this case
-                    taskRecord.Attributes.Add("regardingobjectid", contact.ToEntityReference());
-                    
-                    // options
-                    taskRecord.Attributes.Add("actualdurationminutes", 90);
-                    taskRecord.Attributes.Add("prioritycode", new OptionSetValue(1)); // normal
-
-                    Guid taskGuid = service.Create(taskRecord);
                 }
 
                 catch (FaultException<OrganizationServiceFault> ex)
